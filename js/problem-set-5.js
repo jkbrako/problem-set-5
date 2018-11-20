@@ -25,8 +25,11 @@ function mario() {
   ////////////// DO NOT MODIFY
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
-
-  // WRITE YOUR EXERCISE 1 CODE HERE
+let x = 0;
+  while (x<=24) {
+  	x++;
+  }
+  height = prompt("Insert a number from 1-23.");
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
