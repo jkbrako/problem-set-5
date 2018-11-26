@@ -29,7 +29,7 @@ function mario() {
   height = -1;
   while (!Number.isInteger(height) || height < 1 || height > 23) {
     height = prompt("Insert a number from 1-23.");
-    height = !Number.parseInt(height) + "<br>";
+    height = Number.parseInt(height, 10);
   }
 
   ////////////////////////// DO NOT MODIFY
