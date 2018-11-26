@@ -25,9 +25,10 @@ function mario() {
   ////////////// DO NOT MODIFY
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
-let x = 0;
-  while (x<=24) {
-  	x++;
+  var x;
+  for (x = 0; x < 24; x++) {
+      if (x === 24) {
+          break;
   }
   height = prompt("Insert a number from 1-23.");
 
@@ -298,4 +299,3 @@ function reportCard() {
     homeworks /////////// DO NOT MODIFY
   ); //////////////////// DO NOT MODIFY
   /////////////////////// DO NOT MODIFY
-}
