@@ -25,12 +25,12 @@ function mario() {
   ////////////// DO NOT MODIFY
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
-  var x;
-  for (x = 0; x < 24; x++) {
-      if (x === 24) {
-          break;
+
+  height = -1;
+  while (!Number.isInteger(height) || height < 1 || height > 23) {
+    height = prompt("Insert a number from 1-23.");
+    height = !Number.parseInt(height) + "<br>";
   }
-  height = prompt("Insert a number from 1-23.");
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -299,3 +299,4 @@ function reportCard() {
     homeworks /////////// DO NOT MODIFY
   ); //////////////////// DO NOT MODIFY
   /////////////////////// DO NOT MODIFY
+}
