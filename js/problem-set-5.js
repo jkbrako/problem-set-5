@@ -26,23 +26,30 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  let row = "";
-  let output = "<code>";
-  let line = "&nbsp";
-  let newline ="<br/>"
-  height = -1;
-  while (!Number.isInteger(height) || height < 1 || height > 23) {
-    height = prompt("Insert a number from 1-23.");
-    height = Number.parseInt(height, 10);
-      for(var i=1; i <= height; i++) {
-
+  let pyramid = "<code>";
+  let spacesBefore = "";
+  let hash ="#"
+  let spaces=height-1;
+  while (true) {
+    height =  Number(prompt("Insert a number from 1-23."));
+    if (Number.isInteger(height) && height >= 1 && height <= 23) {
+      break;
     }
-    for (var j=1; j<=i; j++) {
-      row += "#"
   }
-  console.log(row);
-}
-document.getElementById("mario-easy-output").innerHTML =
+  let i = 1
+  while (i <= height){
+
+    for(let j = 0; j <= spaces; j++){
+      spacesBefore+="&nbsp";
+    }
+    spaces--;
+    hash+=hash+"#";
+    pyramid+=spacesBefore+hash+"</br>"
+    i++;
+  }
+pyramid+="</code>"
+document.getElementById("mario-easy-output").innerHTML = pyramid;
+
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
