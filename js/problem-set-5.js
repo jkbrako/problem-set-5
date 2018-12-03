@@ -172,7 +172,7 @@ function credit() {
   let odd_sum=0
   while (true) {
     if (((card.length==16 || card.length==13 || card.length==15) && Number.isInteger
-     (Number(card));
+     (Number(card))
      break;
   }
 
