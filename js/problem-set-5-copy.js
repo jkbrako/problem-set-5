@@ -216,14 +216,6 @@ function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
 
-while (true) {
-  guess = Number(prompt("Insert a non-negative integer between 1 and 1000."))
-  if(Number.isInteger(guess) && guess >= 1 &&  height <= 1000) {
-    break;
-    }
-  }
-
-if()
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -267,25 +259,25 @@ function hurricane() {
   }
 
   if (windspeed<39){
-    document.getElementById("hurricane-output").innerHTML="The skies are calm...";
+    document.getElementById("hurricane-output").innerHTML="The skies are clear...";
   }
   else if (windspeed >= 39 && windspeed <= 73){
     document.getElementById("hurricane-output").innerHTML="Tropical Storm.";
   }
   else if (windspeed >= 74 && windspeed <= 95){
-    document.getElementById("hurricane-output").innerHTML="Category 1 Hurricane.";
+    document.getElementById("hurricane-output").innerHTML="Category 1.";
   }
   else if (windspeed >= 96 && windspeed <= 110){
-    document.getElementById("hurricane-output").innerHTML="Category 2 Hurricane.";
+    document.getElementById("hurricane-output").innerHTML="Category 2.";
   }
   else if (windspeed >= 111 && windspeed <= 129){
-    document.getElementById("hurricane-output").innerHTML="Category 3 Hurricane.";
+    document.getElementById("hurricane-output").innerHTML="Category 3.";
   }
   else if (windspeed >= 130 && windspeed <= 156){
-    document.getElementById("hurricane-output").innerHTML="Category 4 Hurricane.";
+    document.getElementById("hurricane-output").innerHTML="Category 4.";
   }
   else if (windspeed >= 157) {
-    document.getElementById("hurricane-output").innerHTML="Category 5 Hurricane.";
+    document.getElementById("hurricane-output").innerHTML="Category 5.";
   }
 
   ///////////////////////////////// DO NOT MODIFY
