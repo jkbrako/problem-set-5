@@ -168,7 +168,13 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 3 CODE HERE
+  let evem_sum=0
+  let odd_sum=0
+  while (true) {
+    if (((card.length==16 || card.length==13 || card.length==15) && Number.isInteger
+     (Number(card));
+     break;
+  }
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
@@ -367,6 +373,41 @@ function reportCard() {
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
+
+while (true) {
+  let testInput= prompt("Enter test score.")
+  if(testInput==-1);
+  break;
+}
+if (Number(testInput)>=0 && Number(testInput)<=100){
+  testTotal= Number(testInput) + testTotal;
+  tests++;
+}
+
+while (true) {
+  let quizInput= prompt("Enter test score.")
+  if(quizInput==-1);
+  break;
+}
+if (Number(quizInput)>=0 && Number(testInput)<=100){
+  quizTotal= Number(quizInput) + quizTotal;
+  quizzes++;
+}
+
+while (true) {
+  let homeworkInput= prompt("Enter test score.")
+  if(homeworkInput==-1);
+  break;
+}
+if (Number(homeworkInput)>=0 && Number(testInput)<=100){
+  homeworkTotal= Number(homeworkInput) + homeworkTotal;
+  homeworks++;
+}
+
+let testAverage =(testTotal/tests)+ Fixed(2)
+let quizAverage =(quizTotal/quizzes)+ Fixed(2)
+let homeworkAverage =(homeworkTotal/homeworks)+ Fixed(2)
+document.getElementById("report-card-output").innerHTML= ""
 
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
