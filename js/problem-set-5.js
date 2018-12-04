@@ -215,15 +215,23 @@ function credit() {
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
+let guess = Number(prompt("Insert a non-negative integer between 1 and 1000."))
 
 while (true) {
-  guess = Number(prompt("Insert a non-negative integer between 1 and 1000."))
-  if(Number.isInteger(guess) && guess >= 1 &&  height <= 1000) {
+  if(Number.isInteger(guess) && guess >= 1 &&  guess <= 1000) {
     break;
     }
   }
-
-if()
+  let randomNumber = Math.floor(Math.random() * 1000 ) + 1
+  if(parseInt(guess) === randomNumber) {
+prompt("Congratulations, you guessed correctly")
+  }
+ 
+ if(parseInt(guess) !== randomNumber) {
+    guess+= "guess" + "randomNumber"
+  }
+  
+  document.getElementById("guess-output").innerHTML= "The Number is " Number.isInteger(guess) + randomNumber;
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
