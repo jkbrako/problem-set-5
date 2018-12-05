@@ -168,15 +168,41 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  let evem_sum=0
-  let odd_sum=0
-  while (true) {
-    if (((card.length==16 || card.length==13 || card.length==15) && Number.isInteger(card)))
-     card = Number(card);
-     break;
+let odd_sum=0;
+  let even_sum=0;
+  while (true){
+    card=prompt("Enter your credit card number: ");
+    if ((card.length==16 || card.length==15 || card.length==13) && Number.isInteger(Number(card))){
+      break;
+    }
   }
+ for(let cl = card.length-2;cl>=0;cl-=2) {
+    let numc = Number(card[cl])*2;
+    let numStr = numc.toString();
+    let sum_numc= 0;
+    for (let k = 0;k < numStr.length;  k++){
+      sum_numc=sum_numc+Number(numStr[k]);
+    }
+    even_sum=sum_numc+even_sum;
+    console.log(even_sum);
+  }
+  for(let lc=card.length-1; lc>=0; lc-=2){
+    odd_sum=odd_sum+Number(card[lc])
+  }
+  console.log(odd_sum);
 
-
+  if (card.length==15 && (card[0]==3 &&(card[1]==7 || card[1]==4)) && (odd_sum+even_sum)%10==0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/amex.png'/>";
+  }
+  else if ((card.length==13 || card.length==16) && card[0]==4 && (odd_sum+even_sum)%10==0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/visa.png'/>";
+  }
+  else if (card.length==16 && (card[0]==5 && (card[1]==1 || card[1]==2 || card[1]==4 || card[1]==5)) && (odd_sum+even_sum)%10==0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/mastercard.png'/>";
+  }
+  else {
+    document.getElementById("credit-output").innerHTML="<img src ='./images/invalid.png'/>";
+  }
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -213,25 +239,31 @@ function credit() {
  */
 
 function guess() {
-
-  // WRITE YOUR EXERCISE 4 CODE HERE
-let guess = Number(prompt("Insert a non-negative integer between 1 and 1000."))
-
-while (true) {
-  if(Number.isInteger(guess) && guess >= 1 &&  guess <= 1000) {
-    break;
+  let randomNumber=Math.floor(Math.random()*999)+1;
+  let count= 0;
+  let answer = false;
+    while (answer==false) {
+    let guess=prompt('Guess the non-negative integer ranged from 1-1000.')
+    if(guess>=1 && guess<=1000 && Number.isInteger(Number(guess))){
+      console.log("1");
+      if (randomNumber==guess){
+        count++;
+        answer=true;
+        alert("Correct Answer!")
+      }
+      else if(guess>randomNumber){
+        count++;
+        alert("too high")
+      }
+      else if(guess<randomNumber){
+        count++;
+        alert("too low")
+      }
     }
   }
-  let randomNumber = Math.floor(Math.random() * 1000 ) + 1
-  if(parseInt(guess) === randomNumber) {
-prompt("Congratulations, you guessed correctly")
-  }
- 
- if(parseInt(guess) !== randomNumber) {
-    guess+= "guess" + "randomNumber"
-  }
-  
-  document.getElementById("guess-output").innerHTML= "The Number is " Number.isInteger(guess) + randomNumber;
+
+        document.getElementById('guess-output').innerHTML= "The Number is " + randomNumber + "</br>Attempts: "+ count;
+
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -273,7 +305,7 @@ function hurricane() {
     break;
     }
   }
-
+  
   if (windspeed<39){
     document.getElementById("hurricane-output").innerHTML="The skies are calm...";
   }
@@ -295,7 +327,7 @@ function hurricane() {
   else if (windspeed >= 157) {
     document.getElementById("hurricane-output").innerHTML="Category 5 Hurricane.";
   }
-
+  
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
@@ -339,6 +371,24 @@ function gymnastics() {
    *       scores.push(secondScore);  // will likely be different than mine
    */
 
+   let s=1;
+   	while(s<=6){
+   		let inputScore=Number(prompt("Enter your score"));
+   		if (inputScore>=1 && inputScore<=10 && Number.isInteger(inputScore)){
+   			scores.push(inputScore);
+   		s++;
+   		}
+   	}
+   	scores.sort(function(a,b){return a-b;})
+   	let max=scores[5];
+   	let min=scores[0];
+   	let fixedScores=[];
+   	for(let d=1;d<5;d++){
+   		fixedScores.push(scores[d]);
+   	}
+   	let averageScore=((fixedScores[0]+fixedScores[1]+fixedScores[2]+fixedScores[3])/4).toFixed(2);
+
+   	document.getElementById("gymnastics-output").innerHTML= "Discarded: " + min + ", " + max + "</br>Score: " + averageScore;
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -390,41 +440,44 @@ function reportCard() {
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
+/* When "-1" is entered, it works.*/
+while (true){
+		let testInput=prompt("Enter your test score");
+		if(testInput==-1){
+			break;
+		}
+		if(Number(testInput)>=0 && Number(testInput<=100)){
+			testTotal=Number(testInput)+testTotal;
+			tests++;
+		}
 
-while (true) {
-  let testInput= prompt("Enter test score.")
-  if(testInput==-1);
-  break;
-}
-if (Number(testInput)>=0 && Number(testInput)<=100){
-  testTotal= Number(testInput) + testTotal;
-  tests++;
-}
-
-while (true) {
-  let quizInput= prompt("Enter test score.")
-  if(quizInput==-1);
-  break;
-}
-if (Number(quizInput)>=0 && Number(testInput)<=100){
-  quizTotal= Number(quizInput) + quizTotal;
-  quizzes++;
-}
-
-while (true) {
-  let homeworkInput= prompt("Enter test score.")
-  if(homeworkInput==-1);
-  break;
-}
-if (Number(homeworkInput)>=0 && Number(testInput)<=100){
-  homeworkTotal= Number(homeworkInput) + homeworkTotal;
-  homeworks++;
-}
-
-let testAverage =(testTotal/tests)+ Fixed(2)
-let quizAverage =(quizTotal/quizzes)+ Fixed(2)
-let homeworkAverage =(homeworkTotal/homeworks)+ Fixed(2)
-document.getElementById("report-card-output").innerHTML= "Tests:" + testAverage + "</br>Quizzes:" + "</br>Homeworks:" + homeworkAverage;
+	}
+	while(true){
+		let quizInput=prompt("Enter your quiz score");
+		if (quizInput==-1){
+			break;
+		}
+		if(Number(quizInput)>=0 && Number(quizInput)<=100){
+			quizTotal=Number(quizInput)+quizTotal;
+			quizzes++;
+		}
+	}
+	while(true){
+		let homeworkInput=prompt("Enter your homework score");
+		if (homeworkInput==-1){
+			break;
+		}
+		if(Number(homeworkInput)>=0 && Number(homeworkInput)<=100){
+			homeworkTotal=Number(homeworkInput)+homeworkTotal;
+			homeworks++;
+		}
+	}
+	
+	let testAverage=(testTotal/tests).toFixed(2);
+	let quizAverage=(quizTotal/quizzes).toFixed(2);
+	let homeworksAverage=(homeworkTotal/homeworks).toFixed(2);
+	grade=(.6*testAverage+.3*quizAverage+.1*homeworksAverage).toFixed(2);
+	document.getElementById("report-card-output").innerHTML="Tests: "+testAverage+"</br>Quizzes: "+quizAverage+"</br>Homework: "+homeworksAverage+"</br>Grade: "+grade;
 
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
